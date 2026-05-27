@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { supabase } from '../lib/supabase'
-import { Item } from '../types'
+import type { Item } from '../types'
 
 export function useItems() {
   const [items, setItems] = useState<Item[]>([])

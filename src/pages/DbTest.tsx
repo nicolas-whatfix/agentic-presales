@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
-import { Item } from '../types'
+import type { Item } from '../types'
 import Button from '../components/ui/Button'
 import { useItems } from '../hooks/useItems'
 
