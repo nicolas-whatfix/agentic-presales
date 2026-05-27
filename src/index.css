@@ -240,6 +240,73 @@ body {
   margin-top: 8px;
 }
 
+/* Homepage */
+.home {
+  padding: 0;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 24px 64px;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: var(--radius);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 0 0 48px;
+}
+
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.feature-icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.feature-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
 code {
   font-family: var(--mono);
   font-size: 13px;
