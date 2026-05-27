@@ -240,6 +240,86 @@ body {
   margin-top: 8px;
 }
 
+/* Whatfix Dashboard */
+.wf-dashboard {
+  padding: 0 0 48px;
+}
+
+.wf-header {
+  text-align: center;
+  padding: 48px 24px 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+
+.wf-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f96219;
+  margin-bottom: 16px;
+}
+
+.wf-logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f96219;
+  display: inline-block;
+}
+
+.wf-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 8px;
+}
+
+.wf-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.wf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.wf-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid #f96219;
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  transition: box-shadow 0.15s, transform 0.15s;
+  cursor: default;
+}
+
+.wf-card:hover {
+  box-shadow: 0 4px 16px rgba(249, 98, 25, 0.12);
+  transform: translateY(-2px);
+}
+
+.wf-card-icon {
+  font-size: 22px;
+}
+
+.wf-card-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-heading);
+  line-height: 1.3;
+}
+
 /* Homepage */
 .home {
   padding: 0;

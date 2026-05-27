@@ -1,29 +1,34 @@
+const modules = [
+  { label: 'Discovery Call', icon: '📞' },
+  { label: 'Solution Architecture', icon: '🏗️' },
+  { label: 'Competitive Intel', icon: '🔍' },
+  { label: 'Demo Scripting', icon: '📝' },
+  { label: 'Demo Build', icon: '🛠️' },
+  { label: 'Demo Delivery', icon: '🎯' },
+  { label: 'Pilot / POC', icon: '🚀' },
+  { label: 'Security Review', icon: '🔒' },
+]
+
 export default function Dashboard() {
   return (
-    <div className="home">
-      <section className="hero">
-        <h1 className="hero-title">Agentic Presales</h1>
-        <p className="hero-sub">AI-powered agents that research prospects, personalise outreach, and prep your team — before the first call.</p>
-        <a href="/db-test" className="btn btn-primary hero-cta">Get started</a>
-      </section>
+    <div className="wf-dashboard">
+      <header className="wf-header">
+        <div className="wf-logo">
+          <span className="wf-logo-dot" />
+          Whatfix
+        </div>
+        <h1 className="wf-title">Pre-Sales Workflow</h1>
+        <p className="wf-subtitle">Solution Consulting · Agentic Automation</p>
+      </header>
 
-      <section className="features">
-        <div className="feature-card">
-          <span className="feature-icon">🔍</span>
-          <h3>Prospect Research</h3>
-          <p>Automatically gather company intel, tech stack, and buying signals for every account.</p>
-        </div>
-        <div className="feature-card">
-          <span className="feature-icon">✉️</span>
-          <h3>Personalised Outreach</h3>
-          <p>Generate tailored emails and talk tracks grounded in real prospect context.</p>
-        </div>
-        <div className="feature-card">
-          <span className="feature-icon">⚡</span>
-          <h3>Call Prep in Seconds</h3>
-          <p>One-click briefing docs so your team walks into every meeting fully prepared.</p>
-        </div>
-      </section>
+      <div className="wf-grid">
+        {modules.map((m) => (
+          <div key={m.label} className="wf-card">
+            <span className="wf-card-icon">{m.icon}</span>
+            <span className="wf-card-label">{m.label}</span>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
