@@ -1,4 +1,6 @@
+import { AuthProvider, useAuth } from './contexts/AuthContext'
 import AppShell from './components/layout/AppShell'
+import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import DbTest from './pages/DbTest'
 import Discovery from './pages/Discovery'
@@ -12,10 +14,26 @@ function getPage() {
   return <Dashboard />
 }
 
+function AppRoutes() {
+  const { user, loading } = useAuth()
+
+  if (loading) {
+    return (
+      <div className="auth-loading">
+        <span className="wf-logo-dot" />
+      </div>
+    )
+  }
+
+  if (!user) return <Login />
+
+  return <AppShell>{getPage()}</AppShell>
+}
+
 export default function App() {
   return (
-    <AppShell>
-      {getPage()}
-    </AppShell>
+    <AuthProvider>
+      <AppRoutes />
+    </AuthProvider>
   )
 }

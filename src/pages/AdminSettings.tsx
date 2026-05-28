@@ -14,25 +14,14 @@ interface Field {
 
 export default function AdminSettings() {
   const [activeModule, setActiveModule] = useState('Discovery')
-  const [apiKey, setApiKey] = useState('')
-  const [apiKeySaved, setApiKeySaved] = useState(false)
   const [fields, setFields] = useState<Field[]>([])
   const [prompt, setPrompt] = useState('')
   const [saving, setSaving] = useState(false)
   const [savedMsg, setSavedMsg] = useState('')
 
   useEffect(() => {
-    loadApiKey()
-  }, [])
-
-  useEffect(() => {
     loadModuleData(activeModule)
   }, [activeModule])
-
-  async function loadApiKey() {
-    const { data } = await supabase.from('app_settings').select('value').eq('key', 'anthropic_api_key').single()
-    if (data) setApiKey(data.value)
-  }
 
   async function loadModuleData(module: string) {
     const [fieldsRes, promptRes] = await Promise.all([
@@ -41,12 +30,6 @@ export default function AdminSettings() {
     ])
     setFields(fieldsRes.data ?? [])
     setPrompt(promptRes.data?.prompt ?? '')
-  }
-
-  async function saveApiKey() {
-    await supabase.from('app_settings').upsert({ key: 'anthropic_api_key', value: apiKey, updated_at: new Date().toISOString() })
-    setApiKeySaved(true)
-    setTimeout(() => setApiKeySaved(false), 2000)
   }
 
   function updateField(idx: number, key: keyof Field, value: string) {
@@ -89,24 +72,6 @@ export default function AdminSettings() {
   return (
     <div className="page">
       <h1>Admin Settings</h1>
-
-      {/* API Key */}
-      <section className="card">
-        <h2>Anthropic API Key</h2>
-        <p className="settings-desc">Stored in Supabase. Shared across all users of this app.</p>
-        <div className="row" style={{ marginTop: 16 }}>
-          <input
-            className="input"
-            type="password"
-            placeholder="sk-ant-..."
-            value={apiKey}
-            onChange={e => setApiKey(e.target.value)}
-          />
-          <button className="btn btn-primary" onClick={saveApiKey}>
-            {apiKeySaved ? 'Saved ✓' : 'Save'}
-          </button>
-        </div>
-      </section>
 
       {/* Module selector */}
       <section className="card">

@@ -1,6 +1,9 @@
 import { NavLink } from './NavLink'
+import { useAuth } from '../../contexts/AuthContext'
 
 export default function Nav() {
+  const { user, signOut } = useAuth()
+
   return (
     <nav className="nav">
       <span className="nav-brand">
@@ -11,6 +14,10 @@ export default function Nav() {
         <NavLink href="/">Dashboard</NavLink>
         <NavLink href="/discovery">Discovery</NavLink>
         <NavLink href="/settings">Settings</NavLink>
+      </div>
+      <div className="nav-user">
+        <span className="nav-user-email">{user?.email}</span>
+        <button className="nav-signout" onClick={signOut}>Sign out</button>
       </div>
     </nav>
   )
